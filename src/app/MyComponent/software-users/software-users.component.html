@@ -1,0 +1,17 @@
+<p>software-users works!</p>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>email</th>
+      <th>software_name</th>
+      <th>created_at</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let user of softwareUserList">
+      <td>{{user.email}}</td>
+      <td>{{user.software_name}}</td>
+      <td>{{user.created_at}}</td>
+    </tr>
+  </tbody>
+</table>

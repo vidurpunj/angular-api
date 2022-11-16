@@ -1,0 +1,33 @@
+<h2>{{title}}</h2>
+<table class="table table-stripe table-bordered">
+  <thead>
+    <tr>
+      <th>email</th>
+      <th>amount</th>
+      <th>status</th>
+      <th>software_name</th>
+      <th>software_package_name</th>
+      <th>payment_date</th>
+      <th>subscription_invoice_number</th>
+      <th>full_name</th>
+      <th>address</th>
+      <th>country</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let subscriptionInvoice of subscptionServices">
+      <td>{{subscriptionInvoice.email}}</td>
+      <td>{{subscriptionInvoice.amount}}</td>
+      <td>{{subscriptionInvoice.status}}</td>
+      <td>{{subscriptionInvoice.software_name}}</td>
+      <td>{{subscriptionInvoice.software_package_name}}</td>
+      <td>{{subscriptionInvoice.payment_date}}</td>
+      <td>{{subscriptionInvoice.subscription_invoice_number}}</td>
+      <td>{{subscriptionInvoice.full_name}}</td>
+      <td>{{subscriptionInvoice.address}}</td>
+      <td>{{subscriptionInvoice.country}}</td>
+      <td>{{subscriptionInvoice.description}}</td>
+    </tr>
+  </tbody>
+</table>
