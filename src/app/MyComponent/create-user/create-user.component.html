@@ -1,0 +1,78 @@
+<p>{{title}}</p>
+<form [formGroup]="createUserForm" (ngSubmit)="createUser()">
+  <div class="row">
+    <div class="col-md-6">
+      <label for="first_name" class="form-label">First Name</label>
+      <input
+        type="text"
+        minlength="3"
+        maxlength="10"
+        class="form-control"
+        id="first_name"
+        formControlName="first_name">
+      <div class="alert alert-danger" *ngIf="first_name?.errors && first_name?.invalid && first_name?.touched">
+        <div *ngIf="first_name?.errors?.['required']">
+          First Name is required
+        </div>
+        <div *ngIf="first_name?.errors?.['minlength']">First Name should have more than 3 characters</div>
+        <div *ngIf="first_name?.errors?.['maxLength']">First Name should be less than 10 characters</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label>Last Name</label>
+        <input
+          minlength="4"
+          maxlength="10"
+          type="text"
+          class="form-control"
+          id="last_name"
+          formControlName="last_name">
+        <div class="alert alert-danger" *ngIf="last_name?.errors && last_name?.touched">
+          <div *ngIf="last_name?.errors?.['required']">Last Name is required</div>
+          <div *ngIf="last_name?.errors?.['minlength']">Last Name should be more than 3 characters</div>
+          <div *ngIf="last_name?.errors?.['maxlength']">Last Name should be less that 10 characters</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input
+          type="text"
+          required email
+          class="form-control"
+          id="email"
+          formControlName="email"
+          name="email">
+        <div class="alert alert-danger" *ngIf="email?.errors && email?.touched">
+          <div *ngIf="email?.errors?.['required']">Email is required</div>
+          <div *ngIf="email?.errors?.['email']">Email is invalid</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label">Phone</label>
+          <input
+            type="text"
+            maxlength="10"
+            minlength="8"
+            class="form-control"
+            formControlName="phone"
+            name="phone">
+        </div>
+        <div class="alert alert-danger" *ngIf="phone?.errors && phone?.touched" >
+          <div *ngIf="phone?.errors?.['required']">Phone number is required</div>
+          <div *ngIf="phone?.errors?.['maxlength']">Phone number maximum 10 characters</div>
+          <div *ngIf="phone?.errors?.['minlength']">Phone number minimum 8 characters</div>
+          <div *ngIf="phone?.errors?.['pattern']">Phone number is invalid</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <input type="submit" value="create">
+      </div>
+    </div>
+  </div>
+</form>

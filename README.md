@@ -30,3 +30,5 @@ Api:
 1. http://localhost:3000/api/v1/tukatech/user_list.json
 2. http://localhost:3000/api/v1/tukatech/software_user_list.json
 3. http://localhost:3000/api/v1/tukatech/subscription_invoices.json
+
+angular essentials
