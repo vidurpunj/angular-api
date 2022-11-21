@@ -5,4 +5,6 @@ export interface User{
   city: string;
   state: string;
   country: string;
+  password: string;
+  password_confirmation: string;
 }

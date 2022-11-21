@@ -1,5 +1,8 @@
 <p>{{title}}</p>
 <form [formGroup]="createUserForm" (ngSubmit)="createUser()">
+  <div class="alert alert-danger" *ngIf="this.createUserForm.invalid && this.createUserForm.dirty">Please fill the form
+    correctly
+  </div>
   <div class="row">
     <div class="col-md-6">
       <label for="first_name" class="form-label">First Name</label>
@@ -60,12 +63,76 @@
             class="form-control"
             formControlName="phone"
             name="phone">
+          <div class="alert alert-danger" *ngIf="phone?.errors && phone?.touched">
+            <div *ngIf="phone?.errors?.['required']">Phone number is required</div>
+            <div *ngIf="phone?.errors?.['maxlength']">Phone number maximum 10 characters</div>
+            <div *ngIf="phone?.errors?.['minlength']">Phone number minimum 8 characters</div>
+            <div *ngIf="phone?.errors?.['pattern']">Phone number is invalid</div>
+          </div>
         </div>
-        <div class="alert alert-danger" *ngIf="phone?.errors && phone?.touched" >
-          <div *ngIf="phone?.errors?.['required']">Phone number is required</div>
-          <div *ngIf="phone?.errors?.['maxlength']">Phone number maximum 10 characters</div>
-          <div *ngIf="phone?.errors?.['minlength']">Phone number minimum 8 characters</div>
-          <div *ngIf="phone?.errors?.['pattern']">Phone number is invalid</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label">City</label>
+          <input type="text"
+                 required
+                 name="city"
+                 class="form-control"
+                 formControlName="city">
+          <div *ngIf="city?.errors && city?.touched" class="alert alert-danger">
+            <div *ngIf="city?.errors?.['required']">City is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label">State</label>
+          <input type="text"
+                 required
+                 name="state"
+                 class="form-control"
+                 formControlName="state">
+          <div class="alert alert-danger" *ngIf="state?.errors && state?.touched">
+            <div *ngIf="state?.errors?.['required']">State is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label">Password:</label>
+          <input
+            required
+            name="password"
+            type="password"
+            class="form-control"
+            formControlName="password">
+          <div class="alert alert-danger" *ngIf="password?.errors && (password?.touched || password?.dirty)">
+            <div *ngIf="password?.errors?.['required']">Password is required</div>
+            <div *ngIf="password?.errors?.['pattern']">Password must contains at
+              <p>least one uppercase letter and a lowercase letter<br>
+                password should be 8 characters long
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label">Password confirmation:</label>
+          <input
+            required
+            type="password"
+            name="password_confirmation"
+            class="form-control"
+            formControlName="password_confirmation">
+          <div class="alert alert-danger"
+               *ngIf="password_confirmation?.errors && (password_confirmation?.touched || password_confirmation?.dirty)">
+            <div *ngIf="password_confirmation?.errors?.['required']">Password confirmation is required</div>
+            <div *ngIf="password_confirmation?.errors?.['pattern']">Password must contains at
+              <p>least one uppercase letter and a lowercase letter<br>
+                password should be 8 characters long</div>
+            <div *ngIf="password_confirmation?.errors?.['passwordConfirmation']">Name cannot match alter ego.</div>
+          </div>
         </div>
       </div>
     </div>

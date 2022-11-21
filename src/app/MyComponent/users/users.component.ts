@@ -12,7 +12,6 @@ export class UsersComponent implements OnInit {
   users: any = [];
 
   constructor(private userService: UsersService) {
-
     this.userService.getUsers().subscribe(data => {
       this.users = data
     })
@@ -24,7 +23,9 @@ export class UsersComponent implements OnInit {
     email: 'vidur.punj@hotmail.com',
     city: 'Karnal',
     state: 'Haryana',
-    country: 'India'
+    country: 'India',
+    password: 'Punj@123456',
+    password_confirmation: 'Punj@123456'
   }
 
   softwareUser: SoftwareUsers[] =

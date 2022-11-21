@@ -6,11 +6,11 @@ import { User } from '../MyComponent/users/user';
   providedIn: 'root'
 })
 export class CreateUserService {
-
   constructor(public http: HttpClient) { }
-  createUserURL = "localhost:3000/api/angular/users"
+  createUserURL = "http://www.localhost:3000/api/angular/users"
 
   createUser(user: User){
-    this.http.post<User>(this.createUserURL, user);
+    this.http.post<any>(this.createUserURL, user).subscribe(data => {
+    })
   }
 }

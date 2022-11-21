@@ -16,7 +16,9 @@ export class UserDetailComponent implements OnInit {
     email: 'vidur.punj@hotmail.com',
     city: 'Karnal',
     state: 'Haryana',
-    country: 'India'
+    country: 'India',
+    password: 'Punj@1234',
+    password_confirmation: 'Punj@1234'
   }
 
   ngOnInit(): void {
